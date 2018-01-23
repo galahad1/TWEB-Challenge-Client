@@ -8,9 +8,9 @@
     "npm": "1.4.x"
   },
   "scripts": {
-    "start": "grunt",
-    "test": "karma start karma.conf.js",
-    "postinstall": "bower install --config.interactive=false"
+    "postinstall": "grunt uglify",
+    "start": "grunt app.js",
+    "test": "karma start karma.conf.js"
   },
   "dependencies": {
     "async": "~0.9.0",
