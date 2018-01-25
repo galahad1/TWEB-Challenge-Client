@@ -3,6 +3,11 @@
         <md-card-content>
 			<h1>{{ vm.name }}</h1>
             <h2 class="md-title">Content from: animal page</h2>
+            <button type="button" ng-click="vm.sendAnimal()">Send an animal</button>
+            <h3 class="md-title" ng-href=''>Response: {{vm.response}}</h3>
+
+            <button type="button" ng-click="vm.getChance()">I feel lucky</button>
+            <h3 class="md-title">Response: {{vm.responseChance}}</h3>
         </md-card-content>
     </md-card>
 </div>

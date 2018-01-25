@@ -20,12 +20,61 @@
 		function Animal ($http) {
 
 			return {
-				getName: getName
+				getName: getName,
+				sendAnimal: sendAnimal,
+				getAnimal: getAnimal,
+				getChance: getChance
 			};
 
 			function getName () {
-				return "prout!";
+				return "SuperAnimals!";
 			}
+
+			// post
+      function sendAnimal () {
+				let animal = {nom:"gustav", espece: "chat"};
+
+        // post animal
+        return new Promise((resolve) => {
+
+          $http.post('https://fathomless-hollows-67012.herokuapp.com/animals',
+					JSON.stringify(animal), {headers : {
+						'content-type': 'application/json'
+						}})
+          .then(function (response) {
+            resolve(response.data);
+          }, function(response) {
+            console.log('ERROR', response);
+          });
+      	});
+      }
+
+      // get
+      function getAnimal () {
+        // get animal
+        return new Promise((resolve) => {
+          $http.get('https://fathomless-hollows-67012.herokuapp.com/animals')
+          .then(function (response) {
+            resolve(response.data);
+          }, function(response) {
+            console.log('ERROR', response);
+          });
+      	});
+      }
+
+
+      function getChance () {
+        // get chance
+        return new Promise((resolve) => {
+          $http.get('https://fathomless-hollows-67012.herokuapp.com/chance')
+          .then(function (response) {
+            resolve(response.data);
+          }, function(response) {
+            console.log('ERROR', response);
+          });
+      });
+      }
+
 
 		}
 
