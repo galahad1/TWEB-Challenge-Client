@@ -110,7 +110,12 @@ module.exports = function (grunt) {
 		},
 
 		injector: {
-			options: {},
+      options: {
+        // Add path relative
+        prefix: '.',
+        addRootSlash: true,
+        relative: true,
+      },
 			dev: {
 				files: {
 					'index.html': [
@@ -163,10 +168,10 @@ module.exports = function (grunt) {
 		"jshint",
 		"exec",
 		"concat",
-		"ngtemplates",
+    "uglify",
+    "ngtemplates",
 		"injector:production",
-		"concurrent",
-		"clean"
+		"concurrent"
 	]);
 
 	// Development task(s).
